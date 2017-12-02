@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\e2e",
+    "\\node_modules\\@angular",
+    "\\node_modules\\@angular\\animations",
+    "\\node_modules\\@angular\\platform-browser",
+    "\\src\\app",
+    "\\src\\app\\registration",
+    "\\src\\assets"
+  ],
+  "SelectedNode": "\\package.json",
+  "PreviewInSolutionExplorer": false
+}

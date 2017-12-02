@@ -1,19 +1,20 @@
 ﻿<mat-card>
-  <mat-input-container>
-    <input matInput type="text" placeholder="First Name" />
-  </mat-input-container>
-  <mat-input-container>
-    <input matInput type="text" placeholder="Last Name" />
-  </mat-input-container>
-  <mat-input-container>
-    <input matInput type="email" placeholder="Email" />
-  </mat-input-container>
-  <mat-input-container>
-    <input matInput type="password" placeholder="Password" />
-  </mat-input-container>
-  <mat-input-container>
-    <input matInput type="password" placeholder="Confirm Passwrod" />
-  </mat-input-container>
-  <br />
-  <button mat-raised-button color="primary">Register</button>
+  <form [formGroup]="form">
+    <mat-input-container>
+      <input matInput placeholder="First Name" formControlName="firstName" />
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput placeholder="Last Name" formControlName="lastName" />
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput type="email" placeholder="Email" formControlName="email" />
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput type="password" placeholder="Password" formControlName="password" />
+    </mat-input-container>
+    <mat-input-container>
+      <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
+    </mat-input-container>
+    <button mat-raised-button (click)="register()" color="primary">Register</button>
+  </form>
 </mat-card>
