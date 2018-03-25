@@ -1,5 +1,5 @@
 ﻿<mat-card>
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="register()">
     <mat-input-container>
       <input matInput placeholder="First Name" formControlName="firstName" />
     </mat-input-container>
@@ -15,6 +15,6 @@
     <mat-input-container>
       <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
     </mat-input-container>
-    <button mat-raised-button (click)="register()" color="primary">Register</button>
+    <button mat-raised-button type="submit" color="primary">Register</button>
   </form>
 </mat-card>
