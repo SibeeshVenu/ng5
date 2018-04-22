@@ -33,10 +33,14 @@
                 </span>
               </div>
               <div class="form-group" [class.has-error]="confirmPasswordControl.invalid && confirmPasswordControl.touched" [class.has-success]="confirmPasswordControl.valid">
-                <input type="password" required class="form-control" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword"
-                  #confirmPasswordControl="ngModel">
+                <input type="password" required class="form-control" name="confirmPassword" appEqualValidator="password" placeholder="Confirm Password"
+                  [(ngModel)]="confirmPassword" #confirmPasswordControl="ngModel">
                 <span class="help-block" *ngIf="confirmPasswordControl.errors?.required && confirmPasswordControl.touched">
                   Confirm password is required
+                </span>
+                <span class="help-block" *ngIf="confirmPasswordControl.errors?.notEqual 
+                                    && confirmPasswordControl.touched && !confirmPasswordControl.errors?.required">
+                  Password doesn't match
                 </span>
               </div>
               <div>

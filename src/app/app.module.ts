@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatInputModule, MatSnackBarModule, MatToolbarModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { EqualValidatorDirective } from './shared/equal.validator.directive';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -27,7 +28,8 @@ const myRoots: Routes = [
     HomeComponent,
     NavComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule,
