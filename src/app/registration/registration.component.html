@@ -1,20 +1,51 @@
-﻿<mat-card>
-  <form [formGroup]="form" (ngSubmit)="register()">
-    <mat-input-container>
-      <input matInput placeholder="First Name" formControlName="firstName" />
-    </mat-input-container>
-    <mat-input-container>
-      <input matInput placeholder="Last Name" formControlName="lastName" />
-    </mat-input-container>
-    <mat-input-container>
-      <input matInput type="email" placeholder="Email" formControlName="email" />
-    </mat-input-container>
-    <mat-input-container>
-      <input matInput type="password" placeholder="Password" formControlName="password" />
-    </mat-input-container>
-    <mat-input-container>
-      <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword" />
-    </mat-input-container>
-    <button mat-raised-button type="submit" color="primary">Register</button>
-  </form>
-</mat-card>
+﻿<div class="container" style="margin-top:100px;">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-lg-4 col-sm-4 center-block ">
+      <mat-card>
+        <mat-card-header>
+          <img mat-card-avatar src="../../../assets/images/App-login-manager-icon.png">
+          <mat-card-title>Sign up</mat-card-title>
+          <mat-card-subtitle>Trust us for your data, and sign up</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <form #regsiterForm="ngForm" (ngSubmit)="register(user)">
+            <div class="signup-fields">
+              <div class="form-group" [class.has-error]="userName.invalid && userName.touched" [class.has-success]="userName.valid">
+                <input type="text" [(ngModel)]="user.userName" #userName="ngModel" required name="userName" class="form-control" placeholder="User Name">
+                <span class="help-block" *ngIf="userName.errors?.required && userName.touched">
+                  User Name is required
+                </span>
+              </div>
+              <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+                <input type="text" required [email]="user.email !== ''" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email"
+                  #email="ngModel">
+                <span class="help-block" *ngIf="email.errors?.required && email.touched">
+                  Email is required
+                </span>
+                <span class="help-block" *ngIf="email.errors?.email && email.touched">
+                  Email is invalid
+                </span>
+              </div>
+              <div class="form-group" [class.has-error]="password.invalid && password.touched" [class.has-success]="password.valid">
+                <input type="password" [(ngModel)]="user.password" required class="form-control" name="password" placeholder="Password" #password="ngModel">
+                <span class="help-block" *ngIf="password.invalid && password.touched">
+                  Password is required
+                </span>
+              </div>
+              <div class="form-group" [class.has-error]="confirmPasswordControl.invalid && confirmPasswordControl.touched" [class.has-success]="confirmPasswordControl.valid">
+                <input type="password" required class="form-control" name="confirmPassword" placeholder="Confirm Password" [(ngModel)]="confirmPassword"
+                  #confirmPasswordControl="ngModel">
+                <span class="help-block" *ngIf="confirmPasswordControl.errors?.required && confirmPasswordControl.touched">
+                  Confirm password is required
+                </span>
+              </div>
+              <div>
+                <button class="btn btn-primary btn-block" type="submit" [disabled]="regsiterForm.invalid">Signup</button>
+              </div>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
