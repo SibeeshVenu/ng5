@@ -9,7 +9,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   form;
   constructor(private fb: FormBuilder,
     private myRoute: Router,
